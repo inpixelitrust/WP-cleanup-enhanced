@@ -283,4 +283,33 @@ function custom_login_title() {
 }
 
 
+// Custom Backend Footer
+function custom_admin_footer() {
+	echo '<span id="footer-thankyou">Developed by <a href="http://pixeline.be" target="_blank">pixeline</a></span>.';
+}
+
+// adding it to the admin area
+add_filter('admin_footer_text', 'bones_custom_admin_footer');
+
+/*
+	Customize Emails sent by Wordpress: FROM name + email
+*/
+
+add_filter('wp_mail_from','mail_from');
+add_filter('wp_mail_from_name','mail_from_name');
+
+define('MAIL_FROM','client@email.com');
+define('MAIL_FROM_NAME','Client Name');
+
+function mail_from() 
+{	
+	return MAIL_FROM ;
+}
+
+function mail_from_name() 
+{
+	return MAIL_FROM_NAME;
+}
+
+
 ?>
